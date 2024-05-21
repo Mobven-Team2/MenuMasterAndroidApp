@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/sample_logo</item>
+        <item name="windowSplashScreenAnimationDuration">4000</item>
+        <item name="postSplashScreenTheme">@style/Theme.MenuMasterApp</item>
+    </style>
     <style name="Theme.MenuMasterApp" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
