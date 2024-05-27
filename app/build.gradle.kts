@@ -68,4 +68,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // Splash Screen
     implementation(libs.androidx.core.splashscreen)
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
