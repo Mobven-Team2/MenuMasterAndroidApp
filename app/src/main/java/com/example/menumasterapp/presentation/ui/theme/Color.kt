@@ -1,4 +1,4 @@
-package com.example.menumasterapp.ui.theme
+package com.example.menumasterapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -2,7 +2,6 @@ package com.example.menumasterapp.presentation.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.menumasterapp.data.remote.repository.AuthRepositoryImpl
 import com.example.menumasterapp.domain.repository.AuthRepository
 import com.example.menumasterapp.presentation.auth.AuthState
 import dagger.hilt.android.lifecycle.HiltViewModel

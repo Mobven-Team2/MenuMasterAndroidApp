@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.menumasterapp.ui.theme.Primary
-import com.example.menumasterapp.ui.theme.Typography
+import com.example.menumasterapp.presentation.ui.theme.Primary
+import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 fun CustomButton(

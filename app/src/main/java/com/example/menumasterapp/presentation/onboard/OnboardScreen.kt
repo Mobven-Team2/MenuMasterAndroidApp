@@ -24,7 +24,7 @@ import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.auth.component.CustomButton
 import com.example.menumasterapp.presentation.onboard.component.SignUpButton
 import com.example.menumasterapp.presentation.root.Screen
-import com.example.menumasterapp.ui.theme.Typography
+import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 fun OnboardScreen(
