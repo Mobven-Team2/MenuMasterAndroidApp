@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -30,12 +31,12 @@ import com.example.menumasterapp.presentation.auth.component.CustomPasswordTextF
 import com.example.menumasterapp.presentation.auth.component.CustomTextField
 import com.example.menumasterapp.presentation.auth.register.component.AcceptedTermsSection
 import com.example.menumasterapp.presentation.root.Screen
-import com.example.menumasterapp.ui.theme.Typography
+import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 fun RegisterScreen(
     navController: NavController,
-    viewModel: RegisterViewModel = viewModel()
+    viewModel: RegisterViewModel = hiltViewModel()
 ) {
     val state by viewModel.registerState.collectAsState()
     val registerFormState by viewModel.registerFormState.collectAsState()

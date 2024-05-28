@@ -1,8 +1,11 @@
 package com.example.menumasterapp.data.remote.repository
 
 import com.example.menumasterapp.domain.repository.AuthRepository
+import javax.inject.Inject
 
-class AuthRepositoryImpl : AuthRepository {
+class AuthRepositoryImpl @Inject constructor(
+
+) : AuthRepository {
     override suspend fun loginUser(email: String, password: String): Result<String> {
         return try {
             Result.success("Login successfully")

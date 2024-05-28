@@ -27,6 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -34,13 +35,13 @@ import com.example.menumasterapp.presentation.auth.component.CustomButton
 import com.example.menumasterapp.presentation.auth.component.CustomPasswordTextField
 import com.example.menumasterapp.presentation.auth.component.CustomTextField
 import com.example.menumasterapp.presentation.root.Screen
-import com.example.menumasterapp.ui.theme.LightBlack
-import com.example.menumasterapp.ui.theme.Typography
+import com.example.menumasterapp.presentation.ui.theme.LightBlack
+import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 fun LoginScreen(
     navController: NavController,
-    viewModel: LoginViewModel = viewModel()
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
     val state by viewModel.loginState.collectAsState()
     var email by rememberSaveable { mutableStateOf("") }
