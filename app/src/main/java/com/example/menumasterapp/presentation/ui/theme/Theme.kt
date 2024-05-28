@@ -1,4 +1,4 @@
-package com.example.menumasterapp.ui.theme
+package com.example.menumasterapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
