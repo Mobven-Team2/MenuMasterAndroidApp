@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  name: Default
+  demands:
+  - agent.name -equals test-deneme
+
+steps:
+
+- task: Gradle@2
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'assembleDebug'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    gradleOptions: '-Xmx3072m'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
