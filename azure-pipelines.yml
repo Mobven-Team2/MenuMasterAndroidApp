@@ -13,4 +13,10 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: './gradlew assembleDebug'
+- script: |
+    echo Starting Gradle Build
+    ./gradlew assembleDebug
+  displayName: 'Run Gradle Build'
+  env:
+    ANDROID_HOME: $(ANDROID_HOME)
+    JAVA_HOME: $(JAVA_HOME)
