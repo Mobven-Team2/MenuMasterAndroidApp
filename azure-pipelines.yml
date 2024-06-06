@@ -6,8 +6,8 @@ pool:
   demands:
   - agent.name -equals test-deneme
 
-# variables:
-#   ANDROID_HOME: 'C:\\Path\\To\\Your\\Android\\Sdk'  # Android SDK yolunu burada belirtin
+variables:
+  ANDROID_HOME: 'C:\Users\Burhan Ferit\AppData\Local\Android\Sdk'
 
 steps:
 - task: PowerShell@2
