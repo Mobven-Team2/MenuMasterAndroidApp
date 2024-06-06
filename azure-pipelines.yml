@@ -10,4 +10,4 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'gradlew assembleDebug'
+    script: 'gradle assembleDebug'
