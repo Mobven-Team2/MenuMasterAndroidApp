@@ -8,11 +8,17 @@ pool:
 
 variables:
   ANDROID_HOME: 'C:\Users\Burhan Ferit\AppData\Local\Android\Sdk'
+  myVariable: 'some value'
+  anotherVariable: 'another value'
 
 steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
+    script: |
+      echo "PowerShell script is running"
+      # Add any additional PowerShell commands here if needed
+
 - script: |
     echo Starting Gradle Build
     ./gradlew assembleDebug
