@@ -8,8 +8,6 @@ pool:
 
 variables:
   ANDROID_HOME: 'C:\Users\Burhan Ferit\AppData\Local\Android\Sdk'
-  myVariable: 'some value'
-  anotherVariable: 'another value'
 
 steps:
 - task: PowerShell@2
