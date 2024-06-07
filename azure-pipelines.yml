@@ -12,7 +12,7 @@ variables:
 steps:
 - script: |
     echo Starting Gradle Build
-    ./gradlew assembleDebug
+    ./gradlew assembleDebug --stacktrace --debug
   displayName: 'Run Gradle Build'
   env:
     ANDROID_HOME: $(ANDROID_HOME)
