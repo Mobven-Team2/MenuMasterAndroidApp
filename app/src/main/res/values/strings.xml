@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">Menu Master</string>
+    
+    //User Informations Screen
+    <string name="age">Yaş</string>
+    <string name="gender">Cinsiyet</string>
+    <string name="weight">Kilo</string>
+    <string name="height">Boy</string>
+    <string name="activity_state">Aktivite Durumu</string>
+    <string name="female">Kadın</string>
+    <string name="male">Erkek</string>
+    <string name="oftenly_active">Sıklıkla Aktif</string>
+    <string name="sometimes_active">Ara Sıra Aktif</string>
+    <string name="not_active">Aktif Değil</string>
+    <string name="to_continue">Devam Et</string>
+    <string name="do_you_have_account">Hesabınız var mı?</string>
+    <string name="login">Giriş Yap</string>
+    <string name="title_user_info">"Bilgilerini Gir</string>
+    <string name="description_user_info">"Yemek tariflerini sana özel olarak hazırlayabilmemiz için formu doldur"</string>
+    
+    //Global Cuisine Screen
+    <string name="title_global_cuisine">Favori mutfağım...</string>
+    <string name="description_global_cuisine">En sevdiğin dünya mutfaklarını seç</string>
+    <string name="turkish">Türk</string>
+    <string name="mexican">Meksikan</string>
+    <string name="mediterrian">Akdeniz</string>
+    <string name="greek">Yunan</string>
+    <string name="italian">İtalyan</string>
+    <string name="japanese">Japon</string>
+    <string name="thailand">Tayland</string>
+    <string name="vietnamese">Vietnam</string>
+    <string name="indian">Hint</string>
+    <string name="korean">Kore</string>
+    <string name="american">Amerikan</string>
+    <string name="french">Fransız</string>
+
+    //Diet Types Screen
+
+    <string name="title_diet_types_screen">Beslenme tercihim...</string>
+    <string name="description_diet_types_screen">Tariflerini istediğin beslenme türlerini seç</string>
+    <string name="vegan">Vegan</string>
+    <string name="description_vegan">Sadece Bitkisel</string>
+    <string name="vegeterian">Vejeteryan</string>
+    <string name="description_vegeterian">Bitkisel Temelli, Etsiz</string>
+    <string name="ketogenic">Ketojenik</string>
+    <string name="description_ketogenic">Yağ Temelli</string>
+    <string name="paleo">Paleo</string>
+    <string name="description_paleo">Paleo</string>
+    <string name="no_diet">Beslenme Yok</string>
+
+
+
+    
+    
+
 </resources>
