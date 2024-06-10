@@ -68,7 +68,7 @@ fun GlobalCuisineScreen() {
 
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 
 fun previewGlobalCuisine() {
