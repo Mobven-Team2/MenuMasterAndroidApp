@@ -24,7 +24,7 @@ class RegisterViewModel @Inject constructor(
 
     fun register(name: String, email: String, password: String) = viewModelScope.launch {
         authRepository.registerUser(name, email, password).onSuccess {
-            _registerState.value = AuthState(success = it)
+            _registerState.value = AuthState(success = true)
         }.onFailure {
             _registerState.value = AuthState(error = it.localizedMessage.orEmpty())
         }

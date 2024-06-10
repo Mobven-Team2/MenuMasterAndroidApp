@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.menumasterapp.constant.Graph
 import com.example.menumasterapp.presentation.auth.component.CustomButton
 import com.example.menumasterapp.presentation.auth.component.CustomPasswordTextField
 import com.example.menumasterapp.presentation.auth.component.CustomTextField
@@ -47,8 +48,8 @@ fun LoginScreen(
     var password by rememberSaveable { mutableStateOf("") }
     val context = LocalContext.current
     LaunchedEffect(key1 = state) {
-        if (state.success.isNotEmpty())
-            Toast.makeText(context, state.success, Toast.LENGTH_SHORT).show()
+        if (state.success)
+            navController.navigate(Graph.BOTTOM_NAV)
         else if (state.error.isNotEmpty())
             Toast.makeText(context, state.error, Toast.LENGTH_SHORT).show()
     }
@@ -82,7 +83,9 @@ fun LoginScreen(
         )
         CustomButton(
             text = "Giriş Yap",
-            onButtonClick = {  viewModel.login(email, password) }
+            onButtonClick = {
+                viewModel.login(email, password)
+            }
         )
         Row {
             Text(

@@ -88,7 +88,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     // Retrofit
     implementation(libs.retrofit)
-    implementation(libs.gson)
+    implementation(libs.converter.gson)
 
 }
 kapt {
