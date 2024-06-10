@@ -4,23 +4,23 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.menumasterapp.presentation.auth.login.LoginScreen
-import com.example.menumasterapp.presentation.auth.register.RegisterScreen
-import com.example.menumasterapp.presentation.onboard.OnboardScreen
+import com.example.menumasterapp.constant.Graph
+import com.example.menumasterapp.presentation.auth.authNavGraph
+import com.example.menumasterapp.presentation.bottom_nav.BottomNav
 
 @Composable
 fun RootNavigationGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    accessToken: String?
 ) {
-    NavHost(navController = navController, startDestination = Screen.Onboard.route) {
-        composable(route = Screen.Onboard.route) {
-            OnboardScreen(navController)
-        }
-        composable(route = Screen.Login.route) {
-            LoginScreen(navController)
-        }
-        composable(route = Screen.Register.route) {
-            RegisterScreen(navController)
+    NavHost(
+        navController = navController,
+        route = Graph.ROOT,
+        startDestination = if (accessToken.isNullOrEmpty()) Graph.AUTHENTICATION else Graph.BOTTOM_NAV
+    ) {
+        authNavGraph(navController)
+        composable(route = Graph.BOTTOM_NAV) {
+            BottomNav()
         }
     }
 }
