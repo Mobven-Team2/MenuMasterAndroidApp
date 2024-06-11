@@ -77,7 +77,7 @@ fun DietTypesScreen() {
 
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun preview(
 ) {

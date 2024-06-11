@@ -14,7 +14,7 @@ val Primary = Color(0xFFEE714A)
 val LightBlack = Color(0xFF555555)
 val Grey = Color(0xFFEEEEEE)
 
-val Background = Color(0xFFF4F4F4)
 
+val Background = Color(0xFFF4F4F4)
 val LightGreen= Color(0xFFE3FCEA)
 val DarkGreen= Color(0xFF34A853)
