@@ -50,8 +50,7 @@ fun RegisterScreen(
             viewModel.register(name, email, password)
     }
     LaunchedEffect(key1 = state) {
-        if (state.success.isNotEmpty()) {
-            Toast.makeText(context, state.success, Toast.LENGTH_SHORT).show()
+        if (state.success) {
             navController.navigate(Screen.Login.route)
         } else if (state.error.isNotEmpty()) {
             Toast.makeText(context, state.error, Toast.LENGTH_SHORT).show()

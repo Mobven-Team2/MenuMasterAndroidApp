@@ -23,27 +23,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.menumasterapp.presentation.ui.theme.DarkGreen
 import com.example.menumasterapp.presentation.ui.theme.LightGreen
 
+
 @Composable
 fun CustomCardTag(
+    // onChangeSelection: (Boolean,String) -> Unit,
     title: String
 ) {
     var isSelected by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
-            .clickable { isSelected = !isSelected }
+            .clickable {
+                isSelected = !isSelected
+                //       onChangeSelection(isSelected,title)
+            }
             .height(44.dp)
 
             .clip(RoundedCornerShape(12.dp))
             .background(if (isSelected) LightGreen else Color.White, RoundedCornerShape(12.dp))
             .border(
                 1.dp,
-               DarkGreen, RoundedCornerShape(12.dp)
+                DarkGreen, RoundedCornerShape(12.dp)
             )
             .padding(32.dp, 8.dp),
         contentAlignment = Alignment.Center,
@@ -55,7 +59,8 @@ fun CustomCardTag(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (isSelected) Text(title, color = DarkGreen) else Text(modifier = Modifier.padding(12.dp,0.dp),
+            if (isSelected) Text(title, color = DarkGreen) else Text(
+                modifier = Modifier.padding(12.dp, 0.dp),
                 text = title,
                 color = DarkGreen
             )
@@ -67,9 +72,3 @@ fun CustomCardTag(
 
 }
 
-@Preview
-@Composable
-
-fun PreviewOfTag() {
-    CustomCardTag(title = "Türk")
-}

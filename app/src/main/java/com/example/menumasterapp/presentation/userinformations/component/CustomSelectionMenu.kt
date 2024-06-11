@@ -52,14 +52,14 @@ fun CustomSelectionMenu(
         ) {
             OutlinedTextField(
                 value = selectedOption,
-                onValueChange = {onChangeText(selectedOption)},
+                onValueChange = {},
                 readOnly = true,
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(
-                        expanded = !expanded
+                        expanded = expanded
                     )
                 },
-                textStyle= textStyle,
+                textStyle = textStyle,
                 shape = shape,
                 colors = OutlinedTextFieldDefaults.colors(
                     unfocusedContainerColor = Grey,
@@ -79,6 +79,7 @@ fun CustomSelectionMenu(
                         text = { Text(option) },
                         onClick = {
                             selectedOption = option
+                            onChangeText(option)
                             expanded = false
                         },
                         modifier = Modifier.fillMaxWidth()
@@ -87,9 +88,5 @@ fun CustomSelectionMenu(
             }
         }
     }
-}
-@Preview
-@Composable
-fun preview(){
-    CustomSelectionMenu( {}, options = listOf("kadın","erkek"), labelText ="cinsiyet" )
+
 }

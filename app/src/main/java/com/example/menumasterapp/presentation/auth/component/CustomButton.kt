@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,15 +18,16 @@ import com.example.menumasterapp.presentation.ui.theme.Typography
 fun CustomButton(
     text: String,
     onButtonClick: () -> Unit,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    colors: ButtonColors = ButtonDefaults.buttonColors(
+        containerColor = Primary,
+        disabledContainerColor = Primary.copy(alpha = 0.5f),
+        disabledContentColor = Color.White
+    )
 ) {
     Button(
         onClick = { onButtonClick() },
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Primary,
-            disabledContainerColor = Primary.copy(alpha = 0.5f),
-            disabledContentColor = Color.White
-        ),
+        colors = colors,
         modifier = Modifier.fillMaxWidth(),
         enabled = enabled,
         contentPadding = PaddingValues(vertical = 15.dp),
