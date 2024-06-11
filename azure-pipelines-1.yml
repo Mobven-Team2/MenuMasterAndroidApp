@@ -16,3 +16,9 @@ steps:
   displayName: 'Run Gradle Build'
   env:
     ANDROID_HOME: $(ANDROID_HOME)
+
+- script: |
+    ./gradlew sonar -Dsonar.projectKey=MenuMasterAndroidApp -Dsonar.projectName='MenuMasterAndroidApp' -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_70c8258c50cfb2d2d4352f662c80112a99c96f55
+  displayName: 'Run SonarQube Analysis'
+  env:
+    ANDROID_HOME: $(ANDROID_HOME)
