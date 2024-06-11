@@ -8,4 +8,5 @@ object Graph {
     const val ROOT = "root_graph"
     const val AUTHENTICATION = "auth_graph"
     const val BOTTOM_NAV = "bottom_nav_graph"
+    const val WELCOMING= "welcoming_graph"
 }

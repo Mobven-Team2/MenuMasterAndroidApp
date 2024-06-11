@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.menumasterapp.constant.Graph
 import com.example.menumasterapp.presentation.auth.authNavGraph
 import com.example.menumasterapp.presentation.bottom_nav.BottomNav
+import com.example.menumasterapp.presentation.welcoming.WelcomingScreen
 
 @Composable
 fun RootNavigationGraph(
@@ -16,11 +17,14 @@ fun RootNavigationGraph(
     NavHost(
         navController = navController,
         route = Graph.ROOT,
-        startDestination = if (accessToken.isNullOrEmpty()) Graph.AUTHENTICATION else Graph.BOTTOM_NAV
+        startDestination = if (accessToken.isNullOrEmpty()) Graph.WELCOMING else Graph.BOTTOM_NAV
     ) {
         authNavGraph(navController)
         composable(route = Graph.BOTTOM_NAV) {
             BottomNav()
+        }
+        composable(route= Graph.WELCOMING){
+            WelcomingScreen()
         }
     }
 }
