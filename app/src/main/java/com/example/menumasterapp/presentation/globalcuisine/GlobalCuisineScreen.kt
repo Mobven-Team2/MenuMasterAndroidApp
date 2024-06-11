@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -29,13 +30,14 @@ import com.example.menumasterapp.presentation.ui.theme.Typography
 @Composable
 fun GlobalCuisineScreen() {
 
+    var selectedCuisines by remember { mutableStateOf(setOf<String>()) }
 
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .padding(24.dp)
-            .fillMaxHeight(1f),
+            .fillMaxHeight(1f)
     ) {
         Column {
             Text(
@@ -51,26 +53,48 @@ fun GlobalCuisineScreen() {
         }
         Spacer(modifier = Modifier.height(48.dp))
         FlowRow(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+
+            horizontalArrangement =Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            CustomCardTag(title = stringResource(id = R.string.turkish))
-            CustomCardTag(title = stringResource(id = R.string.mexican))
-            CustomCardTag(title = stringResource(id = R.string.mediterrian))
-            CustomCardTag(title = stringResource(id = R.string.greek))
-            CustomCardTag(title = stringResource(id = R.string.italian))
-            CustomCardTag(title = stringResource(id = R.string.japanese))
-            CustomCardTag(title = stringResource(id = R.string.thailand))
-            CustomCardTag(title = stringResource(id = R.string.vietnamese))
-            CustomCardTag(title = stringResource(id = R.string.indian))
-            CustomCardTag(title = stringResource(id = R.string.korean))
-            CustomCardTag(title = stringResource(id = R.string.american))
-            CustomCardTag(title = stringResource(id = R.string.french))
+            val cuisineTitles = listOf(
+                stringResource(id = R.string.turkish),
+                stringResource(id = R.string.mexican),
+                stringResource(id = R.string.mediterrian),
+                stringResource(id = R.string.greek),
+                stringResource(id = R.string.italian),
+                stringResource(id = R.string.japanese),
+                stringResource(id = R.string.thailand),
+                stringResource(id = R.string.vietnamese),
+                stringResource(id = R.string.indian),
+                stringResource(id = R.string.korean),
+                stringResource(id = R.string.american),
+                stringResource(id = R.string.french)
+            )
+
+            cuisineTitles.forEach { title ->
+                CustomCardTag(
+                    title = title,
+                    isSelected = selectedCuisines.contains(title),
+                    onSelectionChanged = { cuisine, isSelected ->
+                        selectedCuisines = if (isSelected) {
+                            selectedCuisines + cuisine
+                        } else {
+                            selectedCuisines - cuisine
+                        }
+                    }
+                )
+            }
         }
         Spacer(modifier = Modifier.height(48.dp))
-        CustomButton(text = stringResource(id = R.string.to_continue), onButtonClick = { /*TODO*/ })
-    }
+        CustomButton(
+            text = stringResource(id = R.string.to_continue),
+            onButtonClick = {
+                println("Seçilen mutfaklar: $selectedCuisines")
 
+            }
+        )
+    }
 }
 
 @Preview(showBackground = true)
