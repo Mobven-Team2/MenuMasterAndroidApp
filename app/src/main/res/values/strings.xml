@@ -48,6 +48,16 @@
     <string name="description_paleo">Paleo</string>
     <string name="no_diet">Beslenme Yok</string>
 
+    //Welcoming Screen
+    <string name="title_first_welcoming">Sana Özel Tarifler</string>
+    <string name="title_second_welcoming">Fotoğrafla Tarif Bul</string>
+    <string name="title_third_welcoming">Kolayca Öğün Planla</string>
+
+    <string name="description_first_welcoming">Beğenilerini ve beslenme tercihlerini gir, sana uygun tarifler keşfet</string>
+    <string name="description_second_welcoming">Yemeğin fotoğrafını çek, anında kişiselleştirilmiş tarif önerileri al</string>
+    <string name="description_third_welcoming">Öğünlerini planla, her öğün için kişiselleştirilmiş tarifler al.</string>
+
+    <string name="skip">Atla</string>
 
 
     

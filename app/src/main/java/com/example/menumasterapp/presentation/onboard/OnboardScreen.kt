@@ -53,7 +53,7 @@ fun OnboardScreen(
             )
             Spacer(modifier = Modifier.height(40.dp))
             Image(
-                painter = painterResource(id = R.drawable.onboard_image),
+                painter = painterResource(id = R.drawable.fourth_onboard),
                 contentDescription = "onboard_image",
                 modifier = Modifier
                     .fillMaxWidth()
