@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.globalcuisine.component
+package com.example.menumasterapp.presentation.auth.globalcuisine.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

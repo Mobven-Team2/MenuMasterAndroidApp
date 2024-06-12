@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.userinformations.component
+package com.example.menumasterapp.presentation.auth.userinformations.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

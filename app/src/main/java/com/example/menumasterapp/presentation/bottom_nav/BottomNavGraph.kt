@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.menumasterapp.constant.Graph
-import com.example.menumasterapp.presentation.ProfileScreen
+import com.example.menumasterapp.presentation.profile.ProfileScreen
 import com.example.menumasterapp.presentation.ai_recipes.AiRecipesScreen
 import com.example.menumasterapp.presentation.home.HomeScreen
 import com.example.menumasterapp.presentation.meals.MealsScreen

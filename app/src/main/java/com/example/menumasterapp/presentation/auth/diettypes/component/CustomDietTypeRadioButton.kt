@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.diettypes.component
+package com.example.menumasterapp.presentation.auth.diettypes.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

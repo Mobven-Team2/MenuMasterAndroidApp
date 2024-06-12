@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation
+package com.example.menumasterapp.presentation.profile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
