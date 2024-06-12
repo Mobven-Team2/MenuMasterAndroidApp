@@ -13,16 +13,13 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
             MenuMasterAppTheme {
-                val accessToken = sharedPreferences.getString("access_token", null)
                 val navController = rememberNavController()
-                RootNavigationGraph(navController = navController, accessToken = accessToken)
+                RootNavigationGraph(navController = navController)
             }
         }
     }

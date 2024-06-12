@@ -1,8 +1,10 @@
 package com.example.menumasterapp.presentation.auth.register
 
 import android.util.Patterns
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.menumasterapp.domain.model.UserInfo
 import com.example.menumasterapp.domain.repository.AuthRepository
 import com.example.menumasterapp.presentation.auth.AuthState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,18 +18,53 @@ class RegisterViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : ViewModel() {
 
+    private val _userInfo = mutableStateOf(UserInfo())
+
     private val _registerState = MutableStateFlow(AuthState())
     val registerState: StateFlow<AuthState> get() = _registerState
 
     private val _registerFormState = MutableStateFlow(RegisterFormState())
     val registerFormState: StateFlow<RegisterFormState> get() = _registerFormState
 
-    fun register(name: String, email: String, password: String) = viewModelScope.launch {
-        authRepository.registerUser(name, email, password).onSuccess {
+    fun register() = viewModelScope.launch {
+        try {
+            println(_userInfo)
+            authRepository.registerUser(_userInfo.value)
             _registerState.value = AuthState(success = true)
-        }.onFailure {
-            _registerState.value = AuthState(error = it.localizedMessage.orEmpty())
+        } catch (e : Exception) {
+            _registerState.value = AuthState(error = e.localizedMessage.orEmpty())
         }
+    }
+
+    fun applyPersonalInformation(age : Int, weight : Int, height : Int, gender : String, activityStatus : String) {
+        val newUserInfo = _userInfo.value.copy(
+            age = age,
+            weight = weight,
+            height = height,
+            gender = gender,
+            activityStatus = activityStatus
+        )
+        _userInfo.value = newUserInfo
+    }
+
+    fun applyDietType(dietTypes: List<String>) {
+        val newUserInfo = _userInfo.value.copy(dietTypes = dietTypes)
+        _userInfo.value = newUserInfo
+    }
+
+    fun applyCuisineNames(cuisines : List<String>) {
+        val newUserInfo = _userInfo.value.copy(cuisineNames = cuisines)
+        _userInfo.value = newUserInfo
+    }
+
+    fun applyEmailPassword(name: String, email: String, password: String, passwordConfirm: String) {
+        val newUserInfo = _userInfo.value.copy(
+            fullName = name,
+            email = email,
+            password = password,
+            passwordConfirm = passwordConfirm
+        )
+        _userInfo.value = newUserInfo
     }
 
     fun submitValidation(name: String, email: String, password: String, repeatedPassword: String) {

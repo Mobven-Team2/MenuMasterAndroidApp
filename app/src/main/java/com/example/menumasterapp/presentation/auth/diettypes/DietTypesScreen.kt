@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.diettypes
+package com.example.menumasterapp.presentation.auth.diettypes
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,12 +16,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.auth.component.CustomButton
-import com.example.menumasterapp.presentation.diettypes.component.CustomDietTypeRadioButton
+import com.example.menumasterapp.presentation.auth.diettypes.component.CustomDietTypeRadioButton
+import com.example.menumasterapp.presentation.auth.register.RegisterViewModel
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 
-fun DietTypesScreen() {
+fun DietTypesScreen(
+    viewModel: RegisterViewModel,
+    onNavigate: () -> Unit
+) {
 
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
@@ -71,7 +75,10 @@ fun DietTypesScreen() {
             description = ""
         )
         Spacer(modifier = Modifier.height(8.dp))
-        CustomButton(text = stringResource(id = R.string.to_continue), onButtonClick = { /*TODO*/ })
+        CustomButton(text = stringResource(id = R.string.to_continue), onButtonClick = {
+            viewModel.applyDietType(dietTypes = listOf("Vegan"))
+            onNavigate()
+        })
     }
 
 
@@ -81,5 +88,5 @@ fun DietTypesScreen() {
 @Composable
 fun preview(
 ) {
-    DietTypesScreen()
+    // DietTypesScreen()
 }

@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.onboard.component
+package com.example.menumasterapp.presentation.auth.onboard.component
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

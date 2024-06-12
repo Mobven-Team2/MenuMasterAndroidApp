@@ -34,8 +34,8 @@ import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
 fun RegisterScreen(
-    navController: NavController,
-    viewModel: RegisterViewModel = hiltViewModel()
+    viewModel: RegisterViewModel,
+    onNavigate: () -> Unit
 ) {
     val state by viewModel.registerState.collectAsState()
     val registerFormState by viewModel.registerFormState.collectAsState()
@@ -46,12 +46,14 @@ fun RegisterScreen(
     var termsChecked by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
     LaunchedEffect(key1 = registerFormState.successful) {
-        if (registerFormState.successful)
-            viewModel.register(name, email, password)
+        if (registerFormState.successful) {
+            viewModel.applyEmailPassword(name, email, password, passwordAgain)
+            viewModel.register()
+        }
     }
     LaunchedEffect(key1 = state) {
         if (state.success) {
-            navController.navigate(Screen.Login.route)
+            onNavigate()
         } else if (state.error.isNotEmpty()) {
             Toast.makeText(context, state.error, Toast.LENGTH_SHORT).show()
         }
@@ -108,5 +110,5 @@ fun RegisterScreen(
 @Preview(showBackground = true)
 @Composable
 private fun PrevRegisterScreen() {
-    RegisterScreen(rememberNavController())
+    // RegisterScreen(rememberNavController())
 }

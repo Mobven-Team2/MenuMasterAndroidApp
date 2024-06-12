@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.globalcuisine
+package com.example.menumasterapp.presentation.auth.globalcuisine
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,12 +22,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.auth.component.CustomButton
-import com.example.menumasterapp.presentation.globalcuisine.component.CustomCardTag
+import com.example.menumasterapp.presentation.auth.globalcuisine.component.CustomCardTag
+import com.example.menumasterapp.presentation.auth.register.RegisterViewModel
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun GlobalCuisineScreen() {
+fun GlobalCuisineScreen(
+    viewModel: RegisterViewModel,
+    onNavigate: () -> Unit
+) {
 
     var selectedCuisines by remember { mutableStateOf(setOf<String>()) }
 
@@ -90,8 +93,8 @@ fun GlobalCuisineScreen() {
         CustomButton(
             text = stringResource(id = R.string.to_continue),
             onButtonClick = {
-                println("Seçilen mutfaklar: $selectedCuisines")
-
+                viewModel.applyCuisineNames(selectedCuisines.toList())
+                onNavigate()
             }
         )
     }
@@ -101,5 +104,5 @@ fun GlobalCuisineScreen() {
 @Composable
 
 fun previewGlobalCuisine() {
-    GlobalCuisineScreen()
+    // GlobalCuisineScreen()
 }

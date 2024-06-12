@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.userinformations
+package com.example.menumasterapp.presentation.auth.userinformations
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,12 +26,16 @@ import com.example.menumasterapp.constant.Genders
 import com.example.menumasterapp.constant.toDisplayString
 import com.example.menumasterapp.presentation.auth.component.CustomButton
 import com.example.menumasterapp.presentation.auth.component.CustomTextField
+import com.example.menumasterapp.presentation.auth.register.RegisterViewModel
+import com.example.menumasterapp.presentation.auth.userinformations.component.CustomSelectionMenu
 import com.example.menumasterapp.presentation.ui.theme.Typography
-import com.example.menumasterapp.presentation.userinformations.component.CustomSelectionMenu
 
 
 @Composable
-fun UserInformationsScreen() {
+fun UserInformationsScreen(
+    viewModel: RegisterViewModel,
+    onNavigate: () -> Unit
+) {
 
     var age by rememberSaveable { mutableStateOf("")}
     var gender by rememberSaveable { mutableStateOf("")}
@@ -70,7 +73,10 @@ fun UserInformationsScreen() {
             labelText = stringResource(R.string.activity_state),
         )
         Spacer(modifier = Modifier.height(8.dp))
-        CustomButton(text = stringResource(R.string.to_continue), onButtonClick = { /*TODO*/ })
+        CustomButton(text = stringResource(R.string.to_continue), onButtonClick = {
+            viewModel.applyPersonalInformation(age.toInt(), weight.toInt(), height.toInt(), gender, activity_state)
+            onNavigate()
+        })
         Spacer(modifier = Modifier.height(4.dp))
         Row() {
             Text(stringResource(R.string.do_you_have_account))
@@ -86,5 +92,5 @@ fun UserInformationsScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun PrevLoginScreen() {
-    UserInformationsScreen()
+    // UserInformationsScreen()
 }

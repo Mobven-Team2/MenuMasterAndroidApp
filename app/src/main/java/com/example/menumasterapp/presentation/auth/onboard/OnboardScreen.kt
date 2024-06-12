@@ -1,4 +1,4 @@
-package com.example.menumasterapp.presentation.onboard
+package com.example.menumasterapp.presentation.auth.onboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.auth.component.CustomButton
-import com.example.menumasterapp.presentation.onboard.component.OnboardBackground
+import com.example.menumasterapp.presentation.auth.onboard.component.OnboardBackground
 import com.example.menumasterapp.presentation.root.Screen
 import com.example.menumasterapp.presentation.ui.theme.Primary
 import com.example.menumasterapp.presentation.ui.theme.Typography
@@ -69,7 +69,7 @@ fun OnboardScreen(
             )
             CustomButton(
                 text = "Kaydol",
-                onButtonClick = { navController.navigate(Screen.Register.route) },
+                onButtonClick = { navController.navigate(Screen.UserInformation.route) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Primary.copy(0.15f),
                     contentColor = Primary

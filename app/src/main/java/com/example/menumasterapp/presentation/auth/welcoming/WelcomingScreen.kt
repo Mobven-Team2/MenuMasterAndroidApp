@@ -1,6 +1,5 @@
-package com.example.menumasterapp.presentation.welcoming
+package com.example.menumasterapp.presentation.auth.welcoming
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Text
@@ -19,22 +17,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.menumasterapp.R
-import com.example.menumasterapp.constant.PreviewMuviScreenSizes
 import com.example.menumasterapp.presentation.auth.component.CustomButton
+import com.example.menumasterapp.presentation.root.Screen
 import com.example.menumasterapp.presentation.ui.theme.LightPrimary
 import com.example.menumasterapp.presentation.ui.theme.Primary
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
-fun WelcomingScreen() {
+fun WelcomingScreen(
+    navController: NavController
+) {
 
     val images =
         listOf(R.drawable.first_onboard, R.drawable.second_onboard, R.drawable.third_onboard)
@@ -112,7 +112,7 @@ fun WelcomingScreen() {
 
         }
         Box(modifier = Modifier.padding(16.dp, 12.dp)) {
-            CustomButton(text = stringResource(id = R.string.login), onButtonClick = { /*TODO*/ })
+            CustomButton(text = stringResource(id = R.string.login), onButtonClick = { navController.navigate(Screen.Onboard.route) })
 
         }
         Text(text = stringResource(id = R.string.skip))
@@ -124,5 +124,5 @@ fun WelcomingScreen() {
 @Preview (showBackground = true)
 @Composable
 fun PreviewWelcoming() {
-    WelcomingScreen()
+    // WelcomingScreen()
 }
