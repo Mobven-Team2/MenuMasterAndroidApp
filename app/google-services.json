@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675975381732",
+    "project_id": "menumaster-fb54b",
+    "storage_bucket": "menumaster-fb54b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675975381732:android:88ced1ba3c7c5c7011a2f1",
+        "android_client_info": {
+          "package_name": "com.example.menumasterapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQvw1VFVDAPlV_cKC64VSf6YHpk7xDUoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
