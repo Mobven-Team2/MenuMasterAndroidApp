@@ -1,5 +1,6 @@
 package com.example.menumasterapp.presentation.auth.welcoming
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,7 +31,7 @@ import com.example.menumasterapp.presentation.ui.theme.LightPrimary
 import com.example.menumasterapp.presentation.ui.theme.Primary
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
-
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WelcomingScreen(
     navController: NavController

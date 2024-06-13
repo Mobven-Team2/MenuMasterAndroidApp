@@ -3,6 +3,7 @@ package com.example.menumasterapp.presentation.home.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,7 +37,9 @@ import com.example.menumasterapp.presentation.ui.theme.Primary
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
-fun ChooseMealCard() {
+fun ChooseMealCard(
+    onClickChooseMealCard: () -> Unit
+) {
     Card(
         colors = CardDefaults.cardColors(containerColor = Color.White),
         modifier = Modifier
@@ -89,7 +92,8 @@ fun ChooseMealCard() {
                 Text(
                     text = "Öğün Oluştur",
                     style = Typography.titleSmall,
-                    color = Primary
+                    color = Primary,
+                    modifier = Modifier.clickable { onClickChooseMealCard() }
                 )
                 Icon(
                     imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,

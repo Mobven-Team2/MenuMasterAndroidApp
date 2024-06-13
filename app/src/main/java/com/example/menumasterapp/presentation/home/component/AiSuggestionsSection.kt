@@ -11,44 +11,35 @@ import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
-fun AiSuggestionsSection() {
+fun AiSuggestionsSection(
+    onSuggestionItemClick: () -> Unit
+) {
     val suggestionList = listOf(
         AiSuggestion(
-            iconResource = R.drawable.recipe_photo,
-            iconColor = Color(0xFF0299DA),
-            suggestionLabel = "Fotoğraftan Yemek Tarifi Al",
-            suggestionDescription = "Yemek fotoğraflarını analiz ederek, benzer tarifler sunar."
+            imageResource = R.drawable.suggestion1,
+            description = "Yemeğinizi pişirirken süreyi dikkatlice takip etmeyi unutmayın",
+            backgroundColor = Color(0xFFFFEEE5)
         ),
         AiSuggestion(
-            iconResource = R.drawable.shopping_list,
-            iconColor = Color(0xFF7373AB),
-            suggestionLabel = "Alışveriş Listesi ve Sepet",
-            suggestionDescription = "Tariflerinizdeki malzemeleri listeler, sizi market alışverişine yönlendirir."
-        ),
-        AiSuggestion(
-            iconResource = R.drawable.refrigerator_alternatives,
-            iconColor = Color(0xFFEE714A),
-            suggestionLabel = "Buzdolabından Alternatifler",
-            suggestionDescription = "Malzemelerinizin analizini yaparak tariflerinizi ve öğünlerinizi oluşturur."
+            imageResource = R.drawable.suggestion2,
+            description = "Yemeğinizi pişirirken süreyi dikkatlice takip etmeyi unutmayın",
+            backgroundColor = Color(0xFFDDEFDD)
         )
     )
-    Text(text = "Menu Master AI Önerileri", style = Typography.bodyLarge)
+    Text(text = "Yemek Tarifleri İçin Püf Noktalar", style = Typography.bodyLarge)
     Spacer(modifier = Modifier.height(16.dp))
     suggestionList.forEach { suggestion ->
         SuggestionItem(
-            iconResource = suggestion.iconResource,
-            iconColor = suggestion.iconColor,
-            suggestionLabel = suggestion.suggestionLabel,
-            suggestionDescription = suggestion.suggestionDescription,
-            onClick = { /* Handle suggestion click */ }
+            imageResource = suggestion.imageResource,
+            description = suggestion.description,
+            backGroundColor = suggestion.backgroundColor
         )
         Spacer(Modifier.height(20.dp))
     }
 }
 
 data class AiSuggestion(
-    val iconResource: Int,
-    val iconColor: Color,
-    val suggestionLabel: String,
-    val suggestionDescription: String
+    val imageResource: Int,
+    val description: String,
+    val backgroundColor: Color
 )
