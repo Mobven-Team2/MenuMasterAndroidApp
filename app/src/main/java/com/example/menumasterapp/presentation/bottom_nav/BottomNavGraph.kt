@@ -9,10 +9,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.menumasterapp.constant.Graph
 import com.example.menumasterapp.presentation.profile.ProfileScreen
-import com.example.menumasterapp.presentation.ai_recipes.AiRecipesScreen
 import com.example.menumasterapp.presentation.home.HomeScreen
+import com.example.menumasterapp.presentation.meal_detail.MealDetailScreen
 import com.example.menumasterapp.presentation.meals.MealsScreen
 import com.example.menumasterapp.presentation.root.Screen
+import com.example.menumasterapp.presentation.shopping_list.ShoppingListScreen
 
 @Composable
 fun BottomNavGraph(
@@ -26,16 +27,19 @@ fun BottomNavGraph(
         modifier = Modifier.padding(innerPaddingValues)
     ) {
         composable(route = Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(navController = navController)
         }
         composable(route = Screen.Meals.route) {
-            MealsScreen()
+            MealsScreen(navController = navController)
         }
         composable(route = Screen.Profile.route) {
             ProfileScreen()
         }
-        composable(route = Screen.AiRecipes.route) {
-            AiRecipesScreen()
+        composable(route = Screen.ShoppingList.route) {
+            ShoppingListScreen()
+        }
+        composable(route = Screen.MealDetail.route) {
+            MealDetailScreen(navController = navController)
         }
     }
 }
