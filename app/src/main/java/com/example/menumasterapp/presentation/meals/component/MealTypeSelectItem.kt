@@ -2,6 +2,7 @@ package com.example.menumasterapp.presentation.meals.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,20 +26,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.menumasterapp.presentation.ui.theme.DarkGreen
+import com.example.menumasterapp.presentation.ui.theme.LightGreen
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
-fun MealSelectItem(
+fun MealTypeSelectItem(
     imageResource: Int,
     label: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    isSelected: Boolean,
+    isGenerated: Boolean
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
-            .background(Color.White)
+            .background(if (isSelected) LightGreen else Color.White)
             .clickable { onClick() }
+            .border(
+                width = 1.dp,
+                color = if (isSelected) DarkGreen else Color.White,
+                shape = RoundedCornerShape(16.dp)
+            )
             .padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -54,10 +68,23 @@ fun MealSelectItem(
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "Öğünü ekle",
+                text = if(isSelected || isGenerated) "Tarif Hazır!" else "Öğünü ekle",
                 style = Typography.bodySmall,
                 color = Color.Gray
             )
         }
+        Spacer(modifier = Modifier.weight(1f))
+        if (isSelected)
+            Icon(
+                imageVector = Icons.Default.Check,
+                contentDescription = "check_icon",
+                modifier = Modifier.size(24.dp),
+                tint = DarkGreen
+            )
+        if (isGenerated)
+            Icon(
+                imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
+                contentDescription = "arrow_icon"
+            )
     }
 }

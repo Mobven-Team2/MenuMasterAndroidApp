@@ -20,9 +20,11 @@ import com.example.menumasterapp.R
 import com.example.menumasterapp.presentation.ui.theme.Typography
 
 @Composable
-fun SeeMealsButton() {
+fun SeeMealsButton(
+    onClickButton: () -> Unit
+) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { onClickButton() },
         shape = RoundedCornerShape(16.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.White,

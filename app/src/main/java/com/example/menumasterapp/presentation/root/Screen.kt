@@ -10,7 +10,8 @@ sealed class Screen(val route: String) {
     data object DietType: Screen("diet_type")
     data object GlobalCuisine: Screen("global_cuisine")
     data object Home : Screen("home")
-    data object Meals : Screen("meal")
+    data object Meals : Screen("meals")
+    data object MealDetail : Screen("meal_detail")
     data object Profile : Screen("profile")
-    data object AiRecipes : Screen("ai_recipes")
+    data object ShoppingList : Screen("shopping_list")
 }

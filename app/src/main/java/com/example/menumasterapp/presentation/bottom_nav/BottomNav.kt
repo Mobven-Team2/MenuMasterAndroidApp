@@ -1,5 +1,6 @@
 package com.example.menumasterapp.presentation.bottom_nav
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -11,9 +12,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.menumasterapp.R
@@ -39,9 +42,9 @@ fun BottomNav(
             icon = ImageVector.vectorResource(id = R.drawable.meals)
         ),
         BottomNavigationItem(
-            route = Screen.AiRecipes.route,
-            title = "AI Tarifler",
-            icon = ImageVector.vectorResource(id = R.drawable.ai_recipes)
+            route = Screen.ShoppingList.route,
+            title = "Alışveriş",
+            icon = ImageVector.vectorResource(id = R.drawable.shopping_list_small)
         ),
         BottomNavigationItem(
             route = Screen.Profile.route,
@@ -64,7 +67,8 @@ fun BottomNav(
                         icon = {
                             Icon(
                                 imageVector = bottomNavigationItem.icon,
-                                contentDescription = "navigation_icon"
+                                contentDescription = "navigation_icon",
+                                modifier = Modifier.size(24.dp)
                             )
                         },
                         label = {
