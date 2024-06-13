@@ -16,17 +16,22 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.menumasterapp.presentation.home.component.AiSuggestionsSection
 import com.example.menumasterapp.presentation.home.component.ChooseMealCard
 import com.example.menumasterapp.presentation.home.component.ProfileSection
 import com.example.menumasterapp.presentation.home.component.SeeMealsButton
+import com.example.menumasterapp.presentation.root.Screen
 import java.util.Calendar
 
 @Composable
 fun HomeScreen(
-
+    viewModel: HomeViewModel = hiltViewModel(),
+    navController: NavController
 ) {
-    val hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+    val hourOfDay = viewModel.getHourOfDay()
     val screenHeightDp = LocalConfiguration.current.screenHeightDp
     val screenHeightPx = with(LocalDensity.current) { screenHeightDp.dp.toPx() }
     LazyColumn(
@@ -46,16 +51,16 @@ fun HomeScreen(
         item { Spacer(Modifier.height(10.dp)) }
         item { ProfileSection(modifier = Modifier.fillMaxWidth(), hourOfDay = hourOfDay) }
         item { Spacer(Modifier.height(30.dp)) }
-        item { ChooseMealCard() }
+        item { ChooseMealCard(onClickChooseMealCard = { navController.navigate(Screen.Meals.route) }) }
         item { Spacer(Modifier.height(16.dp)) }
-        item { SeeMealsButton() }
+        item { SeeMealsButton(onClickButton = { navController.navigate(Screen.MealDetail.route) }) }
         item { Spacer(Modifier.height(16.dp)) }
-        item { AiSuggestionsSection() }
+        item { AiSuggestionsSection(onSuggestionItemClick = { navController.navigate(Screen.ShoppingList.route) }) }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun PrevHomeScreen() {
-    HomeScreen()
+    // HomeScreen(rememberNavController())
 }
